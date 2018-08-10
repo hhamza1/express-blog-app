@@ -9,6 +9,9 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
+var port = process.env.PORT || 3000;
+
+
 // MONGOOSE CONFIG
 mongoose.connect("mongodb://localhost/posts");
 
@@ -57,6 +60,6 @@ app.post("/posts", function(req, res){
     });
 });
 
-app.listen(3000, function(){
-    console.log("Server started at port 3000");
+app.listen(port , function(){
+    console.log("Server started at port: " + port);
 });
