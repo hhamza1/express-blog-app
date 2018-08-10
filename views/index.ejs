@@ -1,12 +1,18 @@
 <% include partials/header.ejs %>
     <% posts.forEach(function(post){ %>
-        <div class="ui container">
+        <div class="ui main text container segment">
             <h3><%=post.title%></h3>
-            <img src="<%=post.image%>" >
-            <p><%=post.body.substring(0,50)%></p>
-            <p><%=post.create%></p>
+            <div class="ui top attached">
+                    <div class="item">
+                       <img class="ui centered rounded image" src="<%=post.image%>" >
+                         <div class="content">
+                            <span>Created in : <%=post.create.toDateString()%></span>
+                            <p><%=post.body.substring(0,100)%>.....</p>
+                        </div>
+                    </div>
+            </div>
             <a class="ui black button" href="/posts/<%= post._id%>">Read More</a>
-        </div>
+            </div>
    <% }); %>
 
 <% include partials/footer.ejs %>
