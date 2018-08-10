@@ -2,11 +2,6 @@ i.icon {
     font-size: 24px;
 }
 
-
-.container {
-    margin: 100px auto;
-}
-
-.button {
-    margin: 0 auto;
+.container.main {
+    margin-top: 7em;
 }
