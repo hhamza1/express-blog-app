@@ -28,9 +28,18 @@ app.get("/", function(req, res){
     res.redirect("/posts");
 });
 
+
+
 app.get("/posts", function(req, res){
-    res.render("index");
-})
+    Post.find({}, function(err, posts){
+        if(err){
+            console.log("Error occured!!");
+        }
+        else{
+            res.render("index", { posts : posts});
+        }
+    });
+});
 
 app.listen(3000, function(){
     console.log("Server started at port 3000");
