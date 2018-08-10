@@ -33,13 +33,18 @@ app.get("/", function(req, res){
 app.get("/posts", function(req, res){
     Post.find({}, function(err, posts){
         if(err){
-            console.log("Error occured!!");
+            console.log("Error!!");
         }
         else{
             res.render("index", { posts : posts});
         }
     });
 });
+
+app.get("/posts/new", function(req, res){
+    console.log()
+    res.render("create");
+})
 
 app.listen(3000, function(){
     console.log("Server started at port 3000");
