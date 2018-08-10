@@ -1,0 +1,23 @@
+<% include partials/header.ejs %>
+
+<div class="ui container">
+        <form class="ui form" action="/posts" method="POST">
+            <div class="field">
+              <label>Title</label>
+              <input type="text" name="title" placeholder="Post Title" class="ui input">
+            </div>
+            <div class="field">
+              <label>Image</label>
+              <input type="text" name="image" placeholder="Post Image Url" class="ui input">
+            </div>
+            <div class="field">
+                <label>Body</label>
+                <textarea class="ui input" name="body"></textarea>
+              </div>
+            </div>
+            <button class="ui button" type="submit">Submit</button>
+    </form>
+</div>
+
+
+<% include partials/footer.ejs %>
