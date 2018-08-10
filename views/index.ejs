@@ -1,5 +1,12 @@
 <% include partials/header.ejs %>
-
+    <% posts.forEach(function(post){ %>
+        <div class="ui container">
+            <h3><%=post.title%></h3>
+            <img src="<%=post.image%>" >
+            <p><%=post.body%></p>
+            <p><%=post.create%></p>
+        </div>
+   <% }); %>
 
 <% include partials/footer.ejs %>
 
