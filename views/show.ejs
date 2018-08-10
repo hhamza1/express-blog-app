@@ -8,6 +8,10 @@
                     <span>Created in : <%=post.create.toDateString()%></span>
                     <p><%-post.body%></p>
                 </div>
+                <div>
+                    <a href="/posts/<%=post._id%>/edit" class="ui inverted positive basic button">Edit Post</a>
+                    <a href="#" class="ui inverted negative basic button">Delete Post</a>
+                </div>
             </div>
         </div>
         
