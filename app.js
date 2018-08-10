@@ -43,9 +43,20 @@ app.get("/posts", function(req, res){
 
 app.get("/posts/new", function(req, res){
     console.log()
-    res.render("create");
-})
+    res.render("new");
+});
+
+app.post("/posts", function(req, res){
+    Post.create(req.body.post, function(err, newPost ){
+        if(err){
+            res.send("new");
+        }
+        else{
+            res.redirect("posts");
+        }
+    });
+});
 
 app.listen(3000, function(){
     console.log("Server started at port 3000");
-})
+});
