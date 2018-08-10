@@ -5,17 +5,17 @@
   <form class="ui form" action="/posts" method="POST">
     <div class="field">
       <label>Title</label>
-      <input type="text" name="post[title]" placeholder="Title">
+      <input type="text" name="post[title]" placeholder="Title" required>
     </div>
     <div class="field">
         <label>Image</label>
-        <input type="text" name="post[image]" placeholder="Image URL">      
+        <input type="text" name="post[image]" placeholder="Image URL" required>      
     </div>
     <div class="field">
       <label>Article</label>
     </div>
     <div class="field">
-      <textarea name="post[body]" placeholder="Write your article here...."></textarea>
+      <textarea name="post[body]" placeholder="Write your article here...." required></textarea>
     </div>
     <button class="ui purple big basic button">Submit</button>
   </form>
