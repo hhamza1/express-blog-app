@@ -1,0 +1,27 @@
+<% include partials/header%>
+
+<div class="ui main text container segment">
+        <div class="ui huge header">Edit Post</div>
+        <form class="ui form">
+            <div class="field">
+              <label>Title</label>
+              <input type="text" name="post[title]" value="<%=post.title%>" placeholder="Title" required>
+            </div>
+            <div class="field">
+                <label>Image</label>
+                <input type="text" name="post[image]" value="<%=post.image%>" placeholder="Image URL" required>      
+            </div>
+            <div class="field">
+              <label>Article</label>
+            </div>
+            <div class="field">
+              <textarea name="post[body]" required>
+                    <%=post.body%>
+              </textarea>
+            </div>
+            <button class="ui purple big basic button">Save</button>
+            <button class="ui big basic button">Cancel</button>
+        </form>
+</div>
+
+<% include partials/footer%>
