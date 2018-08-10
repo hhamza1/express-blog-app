@@ -27,11 +27,14 @@ var Post = mongoose.model("Post", postSchema);
 
 //ROUTES
 
+
+//ROOT ROUTE
+
 app.get("/", function(req, res){
     res.redirect("/posts");
 });
 
-
+//INDEX ROUTE
 
 app.get("/posts", function(req, res){
     Post.find({}, function(err, posts){
@@ -44,10 +47,13 @@ app.get("/posts", function(req, res){
     });
 });
 
+// FORM ROUTE
+
 app.get("/posts/new", function(req, res){
-    console.log()
     res.render("new");
 });
+
+// NEW POST ROUTE
 
 app.post("/posts", function(req, res){
     Post.create(req.body.post, function(err, newPost ){
@@ -56,6 +62,20 @@ app.post("/posts", function(req, res){
         }
         else{
             res.redirect("posts");
+        }
+    });
+});
+
+// SHOW ROUTE
+
+app.get("/posts/:id", function(req, res){
+    var postId = req.params.id;
+    Post.findById(postId, function(err, fullPost){
+        if(err){
+            console.log("Error finding the specific post");
+        }
+        else{
+            res.render("show", { post : fullPost});
         }
     });
 });
