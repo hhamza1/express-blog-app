@@ -80,6 +80,20 @@ app.get("/posts/:id", function(req, res){
     });
 });
 
+// EDIT ROUTE
+
+app.get("/posts/:id/edit", function(req, res){
+    var postId = req.params.id;
+    Post.findById(postId, function(err, editPost){
+        if(err){
+            console.log("Error finding the specific post");
+        }
+        else{
+            res.render("edit", { post : editPost});
+        }
+    });
+});
+
 app.listen(port , function(){
     console.log("Server started at port: " + port);
 });
