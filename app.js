@@ -1,4 +1,5 @@
 var express   = require('express'),
+    methodOverride = require('method-override');
     mongoose  = require('mongoose'),
     bodyParser = require('body-parser'),
     app       = express();
@@ -8,6 +9,7 @@ var express   = require('express'),
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride("_method"));
 
 var port = process.env.PORT || 3000;
 
@@ -92,6 +94,19 @@ app.get("/posts/:id/edit", function(req, res){
             res.render("edit", { post : editPost});
         }
     });
+});
+
+//UPDATE ROUTE
+
+app.put("/posts/:id", function(req, res){
+    Post.findByIdAndUpdate(req.params.id, req.body.post, function(err, updatedPost){
+        if(err){
+            res.redirect("/posts");
+        }
+        else{
+            res.redirect("/posts/" + req.params.id);
+        }
+    })
 });
 
 app.listen(port , function(){
