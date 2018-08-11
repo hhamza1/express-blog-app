@@ -11,7 +11,7 @@
                             </div>
                             <div class="content">
                                 <div class="meta">Created in : <%=post.create.toDateString()%></div>
-                                <p><%=post.body.substring(0,100)%>.....</p>
+                                <p><%-post.body.substring(0,100)%>.....</p>
                                 <div class="extra">
                                         <a class="ui inverted blue button" href="/posts/<%= post._id%>">
                                             Read More <i class="align left icon"></i>
