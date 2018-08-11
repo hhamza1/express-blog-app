@@ -106,7 +106,20 @@ app.put("/posts/:id", function(req, res){
         else{
             res.redirect("/posts/" + req.params.id);
         }
-    })
+    });
+});
+
+// DELETE ROUTE
+
+app.delete("/posts/:id", function(req, res){
+    Post.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            console.log("Error");
+        }
+        else {
+            res.redirect("/posts");
+        }
+    });
 });
 
 app.listen(port , function(){
