@@ -1,4 +1,5 @@
 var express   = require('express'),
+    sanitizer = require('express-sanitizer');
     methodOverride = require('method-override');
     mongoose  = require('mongoose'),
     bodyParser = require('body-parser'),
@@ -9,6 +10,7 @@ var express   = require('express'),
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(sanitizer());
 app.use(methodOverride("_method"));
 
 var port = process.env.PORT || 3000;
@@ -58,6 +60,7 @@ app.get("/posts/new", function(req, res){
 // NEW POST ROUTE
 
 app.post("/posts", function(req, res){
+    req.body.post.body = req.sanitize(req.body.post.body);
     Post.create(req.body.post, function(err, newPost ){
         if(err){
             res.send("new");
@@ -99,6 +102,7 @@ app.get("/posts/:id/edit", function(req, res){
 //UPDATE ROUTE
 
 app.put("/posts/:id", function(req, res){
+    req.body.post.body = req.sanitize(req.body.post.body);
     Post.findByIdAndUpdate(req.params.id, req.body.post, function(err, updatedPost){
         if(err){
             res.redirect("/posts");
