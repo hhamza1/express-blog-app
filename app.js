@@ -3,6 +3,7 @@ var express   = require('express'),
     methodOverride = require('method-override');
     mongoose  = require('mongoose'),
     bodyParser = require('body-parser'),
+    Post      = require('./models/post.js'),
     app       = express();
 
 // APP CONFIG
@@ -17,21 +18,10 @@ var port = process.env.PORT || 3000;
 
 
 // MONGOOSE CONFIG
-mongoose.connect("mongodb://localhost/posts");
-
-var postSchema = new mongoose.Schema({
-    title: String,
-    image: String,
-    body: String,
-    create: {type:Date, default:Date.now}
-});
-
-var Post = mongoose.model("Post", postSchema); 
+mongoose.connect("mongodb://localhost/posts"); 
 
 
 //ROUTES
-
-
 //ROOT ROUTE
 
 app.get("/", function(req, res){
