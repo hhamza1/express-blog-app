@@ -1,19 +1,29 @@
 <% include partials/header.ejs %>
-    <% posts.forEach(function(post){ %>
-        <div class="ui main text container segment">
-            <h3><%=post.title%></h3>
-            <div class="ui top attached">
-                    <div class="item">
-                       <img class="ui centered rounded image" src="<%=post.image%>" >
-                         <div class="content">
-                            <span>Created in : <%=post.create.toDateString()%></span>
-                            <p><%=post.body.substring(0,100)%>.....</p>
+<div class="ui main text container segment">
+  <div class="ui huge header">Express Blog App</div>
+    <div class="ui top attached segment">
+            <div class="ui divided items">
+                <% posts.forEach(function(post){ %>
+                <a href="/posts/<%=post._id%>" class="ui header"><%=post.title%></a>
+                        <div class="item">
+                            <div class="image">
+                                <img class="ui centered rounded image" src="<%=post.image%>" >
+                            </div>
+                            <div class="content">
+                                <div class="meta">Created in : <%=post.create.toDateString()%></div>
+                                <p><%=post.body.substring(0,100)%>.....</p>
+                                <div class="extra">
+                                        <a class="ui inverted blue button" href="/posts/<%= post._id%>">
+                                            Read More <i class="align left icon"></i>
+                                        </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        
+                <% }); %>
             </div>
-            <a class="ui black button" href="/posts/<%= post._id%>">Read More</a>
-            </div>
-   <% }); %>
+        </div>
+    </div>
 
 <% include partials/footer.ejs %>
 
