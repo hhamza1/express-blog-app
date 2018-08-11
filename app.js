@@ -3,7 +3,8 @@ var express   = require('express'),
     methodOverride = require('method-override');
     mongoose  = require('mongoose'),
     bodyParser = require('body-parser'),
-    Post      = require('./models/post.js'),
+    Post      = require('./models/post'),
+    User      = require("./models/user"),
     app       = express();
 
 // APP CONFIG
