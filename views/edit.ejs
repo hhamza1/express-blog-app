@@ -2,7 +2,7 @@
 
 <div class="ui main text container segment">
         <div class="ui huge header">Edit Post</div>
-        <form class="ui form">
+        <form class="ui form" action="/posts/<%=post._id%>?_method=PUT" method="POST">
             <div class="field">
               <label>Title</label>
               <input type="text" name="post[title]" value="<%=post.title%>" placeholder="Title" required>
@@ -19,9 +19,8 @@
                     <%=post.body%>
               </textarea>
             </div>
-            <button class="ui purple big basic button">Save</button>
-            <button class="ui big basic button">Cancel</button>
-        </form>
+            <button class="ui purple big basic button">Submit</button>
+          </form>
 </div>
 
 <% include partials/footer%>
