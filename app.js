@@ -19,7 +19,9 @@ var port = process.env.PORT || 3000;
 
 
 // MONGOOSE CONFIG
-mongoose.connect("mongodb://localhost/posts"); 
+//mongoose.connect("mongodb://localhost/posts");
+mongoose.connect("mongodb://dev:Blogmongo1.0@ds123372.mlab.com:23372/express_blog_app");
+ 
 
 
 //ROUTES
