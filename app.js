@@ -16,11 +16,11 @@ app.use(sanitizer());
 app.use(methodOverride("_method"));
 
 var port = process.env.PORT || 3000;
-
+var dbUrl = process.env.DATABASEURL || "mongodb://localhost/posts";
 
 // MONGOOSE CONFIG
 
-mongoose.connect(process.env.DATABASEURL);
+mongoose.connect(dbUrl);
  
 
 
